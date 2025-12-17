@@ -2,6 +2,10 @@
 
 ✨ A free and open source decentralized electronic business card software ✨
 
+> **Fork Note:**
+> 
+> This project has made some modifications to [OpenBioCard Server](https://github.com/XIYUEKONGLING/OpenBioCardServer/) (a standalone C# backend implementation), such as making API endpoints configurable.
+
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/OpenBioCard/OpenBioCard)
 
 [📚 Detailed Deployment Guide](./docs/DEPLOY.md) | [📚 中文部署指南](./docs/DEPLOY.zh-CN.md) | [简体中文](./README.zh-CN.md)

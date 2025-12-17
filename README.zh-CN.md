@@ -2,6 +2,10 @@
 
 ✨ 免费开源的去中心化电子名片软件 ✨
 
+> **Fork 说明：**
+> 
+> 本项目为 [OpenBioCard Server](https://github.com/XIYUEKONGLING/OpenBioCardServer/) （一个 C# 独立后端实现）进行了一些修改，例如使 API 端点可配置等。
+
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/OpenBioCard/OpenBioCard)
 
 [📚 详细部署指南](./docs/DEPLOY.zh-CN.md) | [📚 Detailed Deployment Guide](./docs/DEPLOY.md) | [English Documentation](./README.md)
