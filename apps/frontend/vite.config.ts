@@ -7,13 +7,13 @@ export default defineConfig(() => {
   return {
     plugins: [
       vue(),
-      vueDevTools(),
-      cloudflare({
-        configPath: '../../wrangler.jsonc',
-        persistState: {
-          path: '../backend/.wrangler/state/v3'
-        }
-      })
+      vueDevTools()
+      // cloudflare({
+      //   configPath: '../../wrangler.jsonc',
+      //   persistState: {
+      //     path: '../backend/.wrangler/state/v3'
+      //   }
+      // })
     ],
     server: {
       port: 8787
