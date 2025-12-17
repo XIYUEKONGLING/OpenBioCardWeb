@@ -1,10 +1,8 @@
-// API服务层 - 认证相关
-const API_BASE = '/api/'
+import { API_CONFIG } from '../config/api.js'
 
 export const authAPI = {
-  // 用户登录
   async login(credentials) {
-    const response = await fetch(`${API_BASE}signin`, {
+    const response = await fetch(API_CONFIG.getUrl('/signin'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -24,9 +22,8 @@ export const authAPI = {
     return await response.json()
   },
 
-  // 检查管理员权限
   async checkPermission(token, username) {
-    const response = await fetch(`${API_BASE}admin/check-permission`, {
+    const response = await fetch(API_CONFIG.getUrl('/admin/check-permission'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,12 +31,10 @@ export const authAPI = {
       body: JSON.stringify({ username, token })
     })
 
-    // Token有效但无管理员权限
     if (response.status === 403) {
       return { authorized: true, isAdmin: false }
     }
 
-    // Token无效或未认证
     if (!response.ok) {
       return { authorized: false, isAdmin: false }
     }

@@ -1,10 +1,8 @@
-// API服务层 - 用户资料相关
-const API_BASE = '/api/'
+import { API_CONFIG } from '../config/api.js'
 
 export const userAPI = {
-  // 获取用户资料
   async getProfile(username) {
-    const response = await fetch(`${API_BASE}user/${username}`)
+    const response = await fetch(API_CONFIG.getUrl(`/user/${username}`))
 
     if (!response.ok) {
       if (response.status === 404) {
@@ -16,9 +14,8 @@ export const userAPI = {
     return await response.json()
   },
 
-  // 更新用户资料
   async updateProfile(username, profileData, token) {
-    const response = await fetch(`${API_BASE}user/${username}`, {
+    const response = await fetch(API_CONFIG.getUrl(`/user/${username}`), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,7 +29,6 @@ export const userAPI = {
         const error = await response.json()
         throw new Error(error.error || 'Update failed')
       } catch (parseError) {
-        // 如果响应不是有效的 JSON，使用状态码和状态文本
         throw new Error(`Update failed: ${response.status} ${response.statusText}`)
       }
     }

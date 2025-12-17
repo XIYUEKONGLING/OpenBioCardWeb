@@ -1,10 +1,8 @@
-// API服务层 - 管理员相关
-const API_BASE = '/api/'
+import { API_CONFIG } from '../config/api.js'
 
 export const adminAPI = {
-  // 获取用户列表
   async getUsers(token, username) {
-    const response = await fetch(`${API_BASE}admin/users/list`, {
+    const response = await fetch(API_CONFIG.getUrl('/admin/users/list'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,9 +23,8 @@ export const adminAPI = {
     return await response.json()
   },
 
-  // 创建用户
   async createUser(userData, token, username) {
-    const response = await fetch(`${API_BASE}admin/users`, {
+    const response = await fetch(API_CONFIG.getUrl('/admin/users'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -54,9 +51,8 @@ export const adminAPI = {
     return await response.json()
   },
 
-  // 删除用户
   async deleteUser(targetUsername, token, username) {
-    const response = await fetch(`${API_BASE}admin/users/${targetUsername}`, {
+    const response = await fetch(API_CONFIG.getUrl(`/admin/users/${targetUsername}`), {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
